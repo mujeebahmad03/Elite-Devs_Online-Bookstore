@@ -1,0 +1,32 @@
+.navbar{
+  padding: 1.8rem 1.5rem;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background-color: white;
+}
+
+.navItems{
+  border: none !important;
+  font-size: 1.8rem !important;
+}
+
+.navMenu{
+  font-size: 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.cart {
+  font-size: 3rem;
+  cursor: pointer;
+  margin-right: 1.5rem;
+
+}
+@media screen and (max-width:780px){
+  .cart, .navMenu {
+    font-size: 2.5rem;
+  }
+}

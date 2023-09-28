@@ -1,0 +1,14 @@
+.bannerContent{
+  min-height: 75dvh;
+  background: linear-gradient(rgba(141, 39, 174, 0.3), rgba(141, 39, 174, 0.5)), url("/library.jpg") center/cover no-repeat;
+  flex-direction: column;
+}
+.bannerTitle{
+  font-size: 4.2rem;
+}
+.bannerText{
+  margin-top: -1.8rem;
+  margin-bottom: 2.8rem;
+  opacity: 0.8;
+  max-width: 770px;
+}

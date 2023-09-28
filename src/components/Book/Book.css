@@ -1,0 +1,8 @@
+.card{
+  width: 300px !important;
+}
+
+.bookImg{
+  width: 100% !important;
+  object-fit: contain !important;
+}
