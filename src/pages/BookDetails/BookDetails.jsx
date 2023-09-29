@@ -42,7 +42,7 @@ function BookDetails() {
     <div style={{padding: 10}}>
       <h1>Book Details</h1>
       <div className='flex'>
-        <img src={bookDetails?.image?.thumbnail && bookDetails?.image?.smallThumbnail || `/cover_not_found.jpg`}/>
+        <img src={bookDetails?.image}/>
         <div style={{padding: 10}}>
           <Descriptions title={bookDetails.title} layout='vertical'>
             <Descriptions.Item label="Authors">{bookDetails.authors}</Descriptions.Item>

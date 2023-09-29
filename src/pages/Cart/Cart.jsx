@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Button, Popconfirm, InputNumber, Table, message, Modal, Form, Input} from "antd"
+import { Button, Popconfirm, InputNumber, Table, message, Modal, Form, Input, Image} from "antd"
 import { useCartContext } from "../../context/cartContext"
 import { useSearchContext } from "../../context/searchContext"
 import { QuestionCircleOutlined } from '@ant-design/icons';
@@ -32,6 +32,12 @@ function Cart() {
     <div>
       <div style={{padding: 10}}>
         <Table columns={[
+            {title: "Cover", 
+            dataIndex: "image",
+            render: (image) => {
+              return <Image src={image} alt="Book Cover" style={{ width: '80px' }} />;
+            }
+          },
             {title: "Title", dataIndex: "title"},
             {
             title: "Price",

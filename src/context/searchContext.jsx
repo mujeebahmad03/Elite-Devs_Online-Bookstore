@@ -47,7 +47,7 @@ const SearchProvider = memo(function SearchProvider({ children }) {
               title: volumeInfo.title,
               description: volumeInfo.description,
               category: volumeInfo.categories, 
-              image: volumeInfo.imageLinks,
+              image: volumeInfo.imageLinks?.thumbnail && volumeInfo.imageLinks?.smallThumbnail || `/cover_not_found.jpg`,
               price: amount,
               quantity: 1,
               total: amount * 1
