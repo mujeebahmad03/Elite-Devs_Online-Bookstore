@@ -21,7 +21,7 @@ function Book({book}) {
 
   return (
       <Card className="card"
-        cover={<Image height={300} className="bookImg" src={book?.image?.thumbnail && book?.image?.smallThumbnail || `/cover_not_found.jpg`}/>}
+        cover={<Image height={300} className="bookImg" src={book?.image?.thumbnail && book?.image?.smallThumbnail || `/cover_not_found.jpg`} alt="book_cover"/>}
         actions={[<Rate disabled allowHalf value={book.averageRating} />, <Button 
           loading={loading} type="link"
           onClick={addBookToCart}>Add to cart</Button>]}

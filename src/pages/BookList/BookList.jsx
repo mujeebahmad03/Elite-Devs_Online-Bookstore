@@ -76,9 +76,9 @@ const BookList = () => {
   <>
         <Menu onClick={onMenuClick} selectedKeys={[current]} mode="horizontal" items={items} />
         
-        <Space size='large'>
-          <Space align='baseline' style={{padding: 8}}>
-            <Typography.Paragraph>Sort books by:</Typography.Paragraph>
+        <Space size='large' style={{padding: 15}}>
+          <Space align='baseline' >
+            <Typography.Paragraph>Sort by:</Typography.Paragraph>
             <Select
             defaultValue="relevance"
             style={{ width: 120 }}
@@ -88,8 +88,8 @@ const BookList = () => {
             </Select>
           </Space>
           
-          <Space align='baseline' style={{padding: 8}}>
-            <Typography.Paragraph>View Books by:</Typography.Paragraph>
+          <Space align='baseline' >
+            <Typography.Paragraph>View by:</Typography.Paragraph>
             <Select
               onChange={(value) => setSortOrder(value)}
               value={sortOrder}

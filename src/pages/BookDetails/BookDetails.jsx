@@ -7,7 +7,7 @@ import { useCartContext } from '../../context/cartContext';
 function BookDetails() {
   const { id } = useParams();
   const [bookDetails, setBookDetails] = useState(null);
-  const { books, loading } = useSearchContext();
+  const { books, loading, setLoading } = useSearchContext();
   const {addToCart} = useCartContext();
 
   useEffect(() => {
@@ -31,6 +31,13 @@ function BookDetails() {
     )
   }
 
+  const addBookToCart = () => {
+    setLoading(true);
+    addToCart(bookDetails);
+    message.success(`${bookDetails.title} has been added to cart`);
+    setLoading(false);
+  }
+
   return (
     <div style={{padding: 10}}>
       <h1>Book Details</h1>
@@ -45,11 +52,10 @@ function BookDetails() {
             <Descriptions.Item label="Published Date">{bookDetails.publishedDate}</Descriptions.Item>
             <Descriptions.Item label="Price">{`$${bookDetails.price}`}</Descriptions.Item>
             <Descriptions.Item label="Ratings"><Rate disabled allowHalf value={bookDetails.averageRating}/></Descriptions.Item>
-            {/* Add more book details here */}
           </Descriptions>
           <Button 
           loading={loading} type="primary"
-          onClick={() => addToCart(bookDetails)}>Add to cart</Button>
+          onClick={addBookToCart}>Add to cart</Button>
         </div>
       </div>
     </div>
