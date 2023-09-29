@@ -44,7 +44,7 @@ img{
   display: block;
 }
 input{
-  width: 300px;
+  width: 100%;
   border: none;
   outline: 0;
   font-family: inherit;
