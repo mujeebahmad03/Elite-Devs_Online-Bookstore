@@ -41,7 +41,7 @@ const SearchProvider = memo(function SearchProvider({ children }) {
             return {
               id: id,
               authors: volumeInfo.authors?.join(', '),
-              averageRating: volumeInfo.averageRating,
+              averageRating: volumeInfo.averageRating || 1,
               pageCount: volumeInfo.pageCount,
               publishedDate: volumeInfo.publishedDate,
               title: volumeInfo.title,

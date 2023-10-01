@@ -57,13 +57,19 @@ const BookList = () => {
         return titleB.localeCompare(titleA);
       }
       if (sortOrder === 'authors') {
-        return a.authors.localeCompare(b.authors);
+        return a.authors?.localeCompare(b.authors);
       }
       if (sortOrder === 'lowHigh') {
         return a.price - b.price;
       }
       if (sortOrder === 'highLow') {
         return b.price - a.price;
+      }
+      if (sortOrder === '1-5') {
+        return a.averageRating - b.averageRating;
+      }
+      if (sortOrder === '5-1') {
+        return b.averageRating - a.averageRating;
       }
     });
     return sortedBooks;
@@ -72,8 +78,7 @@ const BookList = () => {
   const sortedBooks = getSortedBooks();
 
   return (
-  
-  <>
+      <>
         <Menu onClick={onMenuClick} selectedKeys={[current]} mode="horizontal" items={items} />
         
         <Space size='large' style={{padding: 15}}>
@@ -100,26 +105,27 @@ const BookList = () => {
                 {label:'Title: Z-A', value:'za',},
                 {label:'Authors', value:'authors',},
                 {label:'Price: Low to High', value:'lowHigh'},
-                {label:'Price: High to Low', value:'highLow'}
+                {label:'Price: High to Low', value:'highLow'},
+                {label:'Rating: High to Low', value:'5-1'},
+                {label:'Rating: Low to High', value:'1-5'},
               ]}></Select>
           </Space>
         </Space>
 
-    {loading ? ( <Spin tip="Loading" size="large">
-        <div className="content" />
-      </Spin>): 
-      (<div>
-        {/* <div className='section-title container'>
-          <h2>{searchResults}</h2>
-        </div> */}
-        <section className="book">
-        {sortedBooks.map((book, index) => {
-          return <Book key={index} book={book}/>
-        })}
-        </section>
-      </div>)}
-  </>
-  
+        {loading ? ( <Spin tip="Loading" size="large">
+            <div className="content" />
+          </Spin>): 
+          (<div>
+            {/* <div className='section-title container'>
+              <h2>{searchResults}</h2>
+            </div> */}
+            <section className="book">
+            {sortedBooks.map((book, index) => {
+              return <Book key={index} book={book}/>
+            })}
+            </section>
+          </div>)}
+      </>
   );
 };
 export default BookList;
