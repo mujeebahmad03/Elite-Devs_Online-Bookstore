@@ -14,7 +14,7 @@ function Banner({pageTitle}) {
     <section className='banner'>
         <div className='bannerContent flex flex-c text-center text-white'>
           <h2 className='bannerTitle text-capitalize'>{bannerTitle}</h2><br />
-          <p className='bannerText fs-18 fw-3'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam beatae sapiente quibusdam consequatur perspiciatis facere laboriosam non nesciunt at id repudiandae, modi iste? Eligendi, rerum!</p>
+          <p className='bannerText fw-3'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam beatae sapiente quibusdam consequatur perspiciatis facere laboriosam non nesciunt at id repudiandae, modi iste? Eligendi, rerum!</p>
         <SearchForm/>
         </div>
       </section>

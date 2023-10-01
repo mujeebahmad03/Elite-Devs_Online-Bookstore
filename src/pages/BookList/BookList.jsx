@@ -81,7 +81,7 @@ const BookList = () => {
       <>
         <Menu onClick={onMenuClick} selectedKeys={[current]} mode="horizontal" items={items} />
         
-        <Space size='large' style={{padding: 15}}>
+        <Space size='large' style={{padding: 15}} wrap>
           <Space align='baseline' >
             <Typography.Paragraph>Sort by:</Typography.Paragraph>
             <Select
@@ -119,6 +119,7 @@ const BookList = () => {
             {/* <div className='section-title container'>
               <h2>{searchResults}</h2>
             </div> */}
+            <h2 className='text-capitalize pd'>{current}</h2>
             <section className="book">
             {sortedBooks.map((book, index) => {
               return <Book key={index} book={book}/>
