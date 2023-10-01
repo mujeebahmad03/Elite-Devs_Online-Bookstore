@@ -1,4 +1,4 @@
-import { useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import { Button, Descriptions, Rate, Spin, Typography, message } from 'antd';
 import { useSearchContext } from '../../context/searchContext';
@@ -8,7 +8,7 @@ function BookDetails() {
   const { id } = useParams();
   const [bookDetails, setBookDetails] = useState(null);
   const { books, loading, setLoading } = useSearchContext();
-  const {addToCart} = useCartContext();
+  const {addToCart, isBookInCart} = useCartContext();
 
   useEffect(() => {
     // Find the book with the matching id in the books data
@@ -38,6 +38,8 @@ function BookDetails() {
     setLoading(false);
   }
 
+  const bookInCart = isBookInCart(bookDetails.id)
+
   return (
     <div style={{padding: 10}}>
       <h1>Book Details</h1>
@@ -53,9 +55,12 @@ function BookDetails() {
             <Descriptions.Item label="Price">{`$${bookDetails.price}`}</Descriptions.Item>
             <Descriptions.Item label="Ratings"><Rate disabled allowHalf value={bookDetails.averageRating}/></Descriptions.Item>
           </Descriptions>
-          <Button 
+          {!bookInCart ? (<Button 
           loading={loading} type="primary"
-          onClick={addBookToCart}>Add to cart</Button>
+          onClick={addBookToCart}>Add to cart</Button>) : 
+          <Link to='/cart'>
+            <Button type='link'>Go to Cart</Button>
+          </Link>}
         </div>
       </div>
     </div>

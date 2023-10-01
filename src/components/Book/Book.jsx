@@ -10,7 +10,7 @@ const { Meta } = Card;
 
 function Book({book}) {
   const [loading, setLoading] = useState(false)
-  const {addToCart} = useCartContext();
+  const {addToCart, isBookInCart} = useCartContext();
 
   const addBookToCart = () => {
     setLoading(true);
@@ -19,12 +19,14 @@ function Book({book}) {
     setLoading(false);
   }
 
+  const bookInCart = isBookInCart(book.id)
+
   return (
       <Card className="card"
         cover={<Image height={300} className="bookImg" src={book.image} alt="book_cover"/>}
-        actions={[<Rate disabled allowHalf value={book.averageRating} />, <Button 
-          loading={loading} type="link"
-          onClick={addBookToCart}>Add to cart</Button>]}
+        actions={[<Rate disabled allowHalf value={book.averageRating} />, [!bookInCart?(<Button 
+          loading={loading} type="primary"
+          onClick={addBookToCart}>Add to cart</Button>): <Link to="/cart"><Button type="link">Go to Cart</Button></Link>]]}
         >
         <Link to={`/book/${book.id}`}>
           <Meta title={book.title}/>
